@@ -1,11 +1,11 @@
 # 1. Gerekli kütüphaneleri yükleyin:
-# pip install langchain langchain-ollama
+# pip install langchain langchain-ollama langgraph
 
 import os
+import datetime
 from langchain_ollama import ChatOllama
-from langchain.agents import AgentExecutor, create_tool_calling_agent
-from langchain_core.prompts import ChatPromptTemplate
-from langchain.tools import tool
+from langchain_core.tools import tool
+from langgraph.prebuilt import create_react_agent
 
 # --- Araçları (Tools) Tanımlayalım ---
 
@@ -21,39 +21,32 @@ def hesap_makinesi(ifade: str) -> str:
 @tool
 def simdiki_zaman() -> str:
     """Bugünün tarihini ve saatini döndürür."""
-    import datetime
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 # --- Ana Program ---
 def main():
     # 2. Ollama ile yerel LLM'i yapılandırın.
-    #    'llama3.2' yerine indirdiğiniz başka bir modeli yazabilirsiniz.
     llm = ChatOllama(model="qwen2.5-3b")
 
     # 3. Kullanılabilir araçları bir listeye ekleyin.
     tools = [hesap_makinesi, simdiki_zaman]
 
-    # 4. Ajan için bir istem (prompt) şablonu oluşturun.
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", "Sen araçları kullanabilen yardımsever bir asistansın."),
-        ("placeholder", "{chat_history}"),
-        ("human", "{input}"),
-        ("placeholder", "{agent_scratchpad}"),
-    ])
+    # 4. Ajan için bir sistem mesajı (prompt) oluşturun.
+    system_message = "Sen araçları kullanabilen yardımsever bir asistansın."
 
-    # 5. Araç çağırabilen ajanı oluşturun.
-    agent = create_tool_calling_agent(llm, tools, prompt)
+    # 5. LangGraph ile güncel ajan yapısını oluşturun.
+    agent = create_react_agent(llm, tools, state_modifier=system_message)
 
-    # 6. Ajanı çalıştıracak yürütücüyü (executor) oluşturun.
-    #    verbose=True diyerek ajanın düşünme sürecini görebiliriz.
-    agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
-
-    # 7. Ajanı test edelim!
+    # 6. Ajanı test edelim!
     print("--- Hesap Makinesi Testi ---")
-    agent_executor.invoke({"input": "15 ile 7'yi topla"})
+    # Artık girdilerimizi bir mesaj listesi olarak gönderiyoruz.
+    response1 = agent.invoke({"messages": [("user", "15 ile 7'yi topla")]})
+    # Sonucu ekrana yazdır (Cevaplar artık messages listesinin en son elemanında dönüyor)
+    print(response1["messages"][-1].content)
 
-    print("n--- Zaman Testi ---")
-    agent_executor.invoke({"input": "Bugün ayın kaçı?"})
+    print("\n--- Zaman Testi ---")
+    response2 = agent.invoke({"messages": [("user", "Bugün ayın kaçı?")]})
+    print(response2["messages"][-1].content)
 
 if __name__ == "__main__":
     main()
