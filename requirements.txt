@@ -1,4 +1,7 @@
 langchain-core
 langchain-ollama
 langgraph
+
 ollama
+ipython
+pillow

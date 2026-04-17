@@ -5,8 +5,8 @@ import os
 import datetime
 from langchain_ollama import ChatOllama
 from langchain_core.tools import tool
-from langgraph.prebuilt import create_react_agent
-
+# from langgraph.prebuilt import create_react_agent BU APTAL FONKSİYON KALDIRILMIŞ
+from langchain.agents import create_agent
 # --- Araçları (Tools) Tanımlayalım ---
 
 @tool
@@ -35,7 +35,7 @@ def main():
     system_message = "Sen araçları kullanabilen yardımsever bir asistansın."
 
     # 5. LangGraph ile güncel ajan yapısını oluşturun.
-    agent = create_react_agent(llm, tools, state_modifier=system_message)
+    agent = create_agent(llm, tools, system_prompt=system_message)
 
     # 6. Ajanı test edelim!
     print("--- Hesap Makinesi Testi ---")
