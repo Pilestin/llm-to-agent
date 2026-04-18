@@ -1,5 +1,4 @@
-langchain-core
-langchain-ollama
+langchain
 langgraph
 
 ollama
