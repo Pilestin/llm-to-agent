@@ -1,5 +1,6 @@
 langchain
 langgraph
+langchain-ollama
 
 ollama
 ipython
