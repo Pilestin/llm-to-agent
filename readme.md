@@ -39,6 +39,8 @@ Ajan: En iyi rotam: ['C', 'D', 'A', 'B']
 En iyi mesafemiz: 60 km  
 
 Bu en iyi rotayı tekrar doğrulmak için, başlangıç rotanız olan ['A', 'B', 'C', 'D'] ile aynı obje üzerinde tekrardan bir deneme yaptım. En iyi sonuç, önceki denemelerden elde ettiğimiz en iyi mesafeyi korudur.
+
+```python
 Sen: peki ['A', 'B', 'C', 'D'] bu rotanın mesafesini verir misin
 Ajan: It appears that you've provided a list of route distances for traveling from point A (let's call it "A") to point D (let's call it "D"), via points B and C, in different orders. Each entry shows the distance for one possible order of visiting these three points.
 
@@ -53,3 +55,4 @@ This pattern continues with different combinations of these points, each time ch
 
 If you need any specific information or analysis from this list (like finding the shortest path, longest path, average distance, etc.), please let me know!
 Sen: 
+```
