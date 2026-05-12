@@ -1,7 +1,10 @@
 # LLM to Agent
 
-Bu repo llm'lerin farklı araçlar ile nasıl etkileşim kurudğunu öğrenmem için oluşturduğum bir çalışma alanıdır. Burada özellikle Ollama ve LangChain kullanarak detaylarıöğrenmeyi amaçlıyorum.
+Bu repo llm'lerin farklı araçlar ile nasıl etkileşim kurudğunu öğrenmem için oluşturduğum bir çalışma alanıdır. Burada LangChain öğrenmeyi amaçlıyorum.
 
+LangChain → model abstraction
+LangGraph → agent/workflow orchestration
+LangSmith → tracing/debugging/observability
 
 ### Kurulum 
 
