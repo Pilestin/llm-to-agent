@@ -1,7 +1,9 @@
 langchain
 langgraph
 langchain-ollama
-
+langchain_openai
+langchain-google-genai
 ollama
 ipython
 pillow
+dotenv
