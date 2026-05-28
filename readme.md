@@ -38,7 +38,7 @@ Daha önce hiç rotalama ile uğraştıysanız bu problemin bir sıralama proble
 
 Bunun için basit bir örnek üzerinden gidelim. Diyelim ki elimizde 4 nokta var: A, B, C ve D. Bu noktalar arasındaki mesafeler biliniyor olsun ve biz bu noktaların hepsine uğramalıyız (teslimat problemi veya klasik TSP). Örneğin şu sırada/rotada ['A', 'B', 'C', 'D'] ziyaretleri yapsak sonuç ne olurdu?. Biz bu rotayı optimize etmek istiyoruz, yani en kısa mesafeli rotayı bulmak istiyoruz.
 
-Bunun için [4.1_routing.py](4.1_routing.py) koduna bakabilirsiniz. Basit bir şekilde başlangıçta verilen rota sırasını hesaplayan (matrisden mesafeleri okuyup toplayan) ve daha sonra bu sırayı noktaların yerlerini değiştirerek optimize etmeye çalışan bir fonksiyon var. Burada iki önemli fonksiyon var: 
+Bunun için [4.1_routing.py](learning/4.1_routing.py) koduna bakabilirsiniz. Basit bir şekilde başlangıçta verilen rota sırasını hesaplayan (matrisden mesafeleri okuyup toplayan) ve daha sonra bu sırayı noktaların yerlerini değiştirerek optimize etmeye çalışan bir fonksiyon var. Burada iki önemli fonksiyon var: 
 1. `calculate_distance` 
 2. `optimize_route`. 
 
@@ -53,9 +53,9 @@ Bunun için [4.1_routing.py](4.1_routing.py) koduna bakabilirsiniz. Basit bir ş
 
 
 
-Öncelikle [4.2_route-calculater-agent.py](4.2_route-calculater-agent.py) kodunu inceleyebilirsiniz. Burada verilen bir rotanın toplam mesafesini hesaplayan bir ajan var. Yani `calculate_distance` fonksiyonunu kullanabiliyor. 
+Öncelikle [4.2_route-calculater-agent.py](learning/4.2_route-calculater-agent.py) kodunu inceleyebilirsiniz. Burada verilen bir rotanın toplam mesafesini hesaplayan bir ajan var. Yani `calculate_distance` fonksiyonunu kullanabiliyor. 
 
-Daha sonra [4.3_route-optimizer-agent.py](4.3_route-optimizer-agent.py) koduna bakabilirsiniz. Burada ise `optimize_route` fonksiyonunu da kullanarak rota optimizasyonu yapan bir ajan var. Yani kullanıcı text olarak bir başlangıç rotası verdiğinde, bu ajan bu rotayı optimize ediyor ve en iyi rotayı ve mesafeyi söylüyor.
+Daha sonra [4.3_route-optimizer-agent.py](learning/4.3_route-optimizer-agent.py) koduna bakabilirsiniz. Burada ise `optimize_route` fonksiyonunu da kullanarak rota optimizasyonu yapan bir ajan var. Yani kullanıcı text olarak bir başlangıç rotası verdiğinde, bu ajan bu rotayı optimize ediyor ve en iyi rotayı ve mesafeyi söylüyor.
 
 
 
