@@ -143,16 +143,16 @@ agent_builder.add_edge("tool_node", "llm_call")
 agent = agent_builder.compile()
 
 # Show the agent
-from IPython.display import Image, display
-# display(Image(agent.get_graph(xray=True).draw_mermaid_png()))
-# Grafiği oluştur
-png_data = agent.get_graph(xray=True).draw_mermaid_png()
+# from IPython.display import Image, display
+# # display(Image(agent.get_graph(xray=True).draw_mermaid_png()))
+# # Grafiği oluştur
+# png_data = agent.get_graph(xray=True).draw_mermaid_png()
 
-# Dosya olarak kaydet
-with open("images/agent_mimari_grafigi.png", "wb") as f:
-    f.write(png_data)
+# # Dosya olarak kaydet
+# with open("images/agent_mimari_grafigi.png", "wb") as f:
+#     f.write(png_data)
 
-print("✅ Ajanın şeması 'agent_mimari_grafigi.png' adıyla kaydedildi! Klasörünü kontrol et.")
+# print("✅ Ajanın şeması 'agent_mimari_grafigi.png' adıyla kaydedildi! Klasörünü kontrol et.")
 
 # Invoke
 from langchain.messages import HumanMessage
